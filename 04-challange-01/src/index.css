@@ -47,6 +47,8 @@
 .skill {
   width: fit-content;
   padding: 0.2rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
   border-radius: 0.5rem;
 }
 

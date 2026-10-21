@@ -2,9 +2,47 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "Advanced",
+    bgColor: "Blue",
+  },
+
+  {
+    skill: "JavaScript",
+    level: "Advanced",
+    bgColor: "Red",
+  },
+
+  {
+    skill: "React",
+    level: "Intermidiet",
+    bgColor: "Yellow",
+  },
+
+  {
+    skill: "Node.js",
+    level: "Beginner",
+    bgColor: "orangered",
+  },
+
+  {
+    skill: "Web Design",
+    level: "Intermidiet",
+    bgColor: "purple",
+  },
+
+  {
+    skill: "SQL",
+    level: "Beginner",
+    bgColor: "green",
+  },
+];
+
 function App() {
   return (
-    <main class="card">
+    <main className="card">
       <Avatar />
       <Info />
       <SkillList />
@@ -31,22 +69,33 @@ function Info() {
 
 function SkillList() {
   return (
-    <div class="skill-list">
-      <Skill skill="HTML+CSS" emoji="💪" color="blue" />
-      <Skill skill="JavaScript" emoji="💪" color="orangered" />
-      <Skill skill="React" emoji="💪" color="yellow" />
-      <Skill skill="Node.js" emoji="🦊" color="orange" />
+    <div className="skill-list">
+      {skills.map((skill) => {
+        return (
+          <Skill
+            skill={`${skill.skill}`}
+            level={`${skill.level}`}
+            bgColor={`${skill.bgColor}`}
+          />
+        );
+      })}
     </div>
   );
 }
 
-function Skill(props) {
+function Skill({ skill, level, bgColor }) {
   return (
-    <div class="skill" style={{ backgroundColor: props.color }}>
-      <span>{props.skill}</span>
-      <span>{props.emoji}</span>
+    <div className="skill" style={{ backgroundColor: bgColor }}>
+      <span>{skill}</span>
+      <span>
+        {level === "Advanced" && "💪"}
+        {level === "Intermidieti" && "👍"}
+        {level === "Intermidieti" && "👶"}
+      </span>
     </div>
   );
+
+  // : "👍" "👶"
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
